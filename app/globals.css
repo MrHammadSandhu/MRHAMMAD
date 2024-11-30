@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background: #1c1d20;
+  /* height: 8948px; */
+  touch-action: pan-x;
+  overscroll-behavior: none;
+  scroll-behavior: auto;
+  color: white;
+}
+.body-overlay {
+  position: fixed;
+  z-index: 9;
+  pointer-events: none;
+  top: 0;
+  opacity: 1;
+  inset-inline-start: 0;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: repeat;
+  background-position: top left;
+  background-image: url("/body-bg.png");
+}
+
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 50px;
+  color: white;
+  -webkit-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.portfolio__about {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio__about::after {
+  position: absolute;
+  content: "ABOUT";
+  width: 160px;
+  height: 100%;
+  right: 0px;
+  top: -60px;
+  font-weight: 700;
+  font-size: 250px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #999999;
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  z-index: -10;
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .portfolio__about::after {
+    font-size: 230px;
+    top: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .portfolio__about::after {
+    font-size: 200px;
+  }
+}
